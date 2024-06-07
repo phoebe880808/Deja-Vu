@@ -1,0 +1,698 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "HV Muse";
+    src: url(./Harmonais\ Visual\ -\ HV\ Muse\ Regular.otf);
+    /*./同一層*/
+    /*@共用*/
+}
+
+/* eric/css/reset/ */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+/* 全域選擇器，基本取消 */
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    /* 歸0為1rem/16 */
+    box-sizing: border-box;
+    /* 不累加邊框與內距 */
+}
+
+body {
+    font-family:
+        /*西文*/
+        "HV Muse"
+        /*中文*/
+    ;
+    /*中文，空格要有引號*/
+    color: var(--deep);
+    /*定義整個網站預設字色*/
+    /* 讓body填滿整個視口 */
+    /* background: linear-gradient(to right, #563F2E 40%, transparent 60%), url('../images/banner.jpg'); */
+    /* 使用線性漸變和圖片背景 */
+    /* background-size: auto, cover; */
+    /* 設置背景大小 */
+    /* background-position: right, center; */
+    /* 設置背景位置 */
+    background: url(./images/stone-ok.png);
+}
+
+:root {
+    /*文字*/
+    --light: #fff;
+    --deep: #434343;
+
+    /*主色調*/
+    --main: #563F2E;
+
+    /*輔助色調*/
+    --green: #40686A;
+    /* 透明色調 */
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+a {
+    display: block;
+    color: var(--light);
+    text-decoration: none;
+    /* 取消預設的底線裝飾 */
+}
+
+/* 頁首區 */
+.nav-box {
+    position: fixed;
+    /* position預設寬高抓內容尺寸 */
+    width: 100%;
+    display: flex;
+    /* 預設主軸(水平) */
+    justify-content: space-between;
+    /* 主軸(水平)均分 */
+    align-items: center;
+    /* 副軸(垂直)置中 */
+    padding: 20px 40px;
+    z-index: 999;
+}
+
+.nav-box img {
+    height: 130px;
+}
+
+.hamburger {
+    /* width: 80px; */
+    position: absolute;
+    right: 2.5%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    /* padding: 10px; */
+    /* cursor: pointer; */
+}
+
+.line-1 {
+    display: block;
+    background: #fff;
+    height: 2px;
+    width: 25px;
+    position: relative;
+    border-radius: 40px;
+}
+
+.line-2 {
+    display: block;
+    background: #fff;
+    height: 2px;
+    width: 15px;
+    margin-top: 5px;
+    position: relative;
+    border-radius: 40px;
+}
+
+.hamburger i:after {
+    content: "";
+    width: 0%;
+    position: absolute;
+    height: 100%;
+    background: rgba(64, 104, 106, .9);
+    transition: 0.2s;
+    border-radius: 40px;
+}
+
+.hamburger i:nth-child(2):after {
+    transition-delay: 0.1s;
+}
+
+.hamburger:hover i:after {
+    width: 100%;
+}
+
+#banner {
+    padding: 0.5% 0.5%;
+}
+
+#banner .bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, .05), rgba(0, 0, 0, .2)), url(./images/plan-banner.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 95vh;
+    border-radius: 0 50px 0 50px;
+    color: var(--light);
+}
+
+#banner .bg h1 {
+    font-size: 7.5rem;
+    margin: 1%;
+}
+
+#banner .bg h2 {
+    font-size: 1.5rem;
+    margin: 1%;
+}
+
+#preface {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#preface figure {
+    border-radius: 0 40px 0 40px;
+    width: 300px;
+    height: 400px;
+    background-image: url(./images/plan-s-bn.jpg);
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    /* Add this line */
+    top: 95%;
+    /* Adjust as needed */
+    left: 50%;
+    /* Adjust as needed */
+    transform: translate(-50%, -50%);
+    /* Center the figure */
+}
+
+#preface span {
+    text-align: center;
+    margin-top: 20%;
+    line-height: 50px;
+    margin-bottom: 5%;
+    letter-spacing: 2px;
+}
+
+/* 卡片 */
+#card-box {
+    background-color: var(--main);
+    padding: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    letter-spacing: 2px;
+}
+
+/* 卡片1 */
+#card-box .card-one {
+    background-color: var(--light);
+    padding: 5%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2% 0;
+}
+
+#card-box .card-one .number {
+    display: flex;
+    /* 預設主軸(水平) */
+    justify-content: space-between;
+    /* 主軸(水平)均分 */
+    align-items: baseline;
+    width: 100%;
+}
+
+#card-box .card-one .number h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+#card-box .card-one .number p {
+    font-size: 1.25rem;
+}
+
+#card-box .card-one .picture {
+    background-image: url(./images/card-one.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 800px;
+    height: 400px;
+    margin: 2% 0;
+}
+
+#card-box .card-one .content {
+    display: flex;
+    /* 預設主軸(水平) */
+    justify-content: space-between;
+    /* 主軸(水平)均分 */
+    align-items: center;
+    width: 100%;
+}
+
+#card-box .card-one .content .item {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+#card-box .card-one .content .item .up {
+    display: flex;
+    /* 預設主軸(水平) */
+    justify-content: center;
+    /* 主軸(水平)均分 */
+    align-items: center;
+    margin: 2% 0;
+}
+
+#card-box .card-one .content .item .up p {
+    margin: 0 5px;
+    background-color: #F0EDED;
+    padding: 3% 3%;
+    border-radius: 50px;
+    white-space: nowrap;
+}
+
+#card-box .card-one .content .item .down {
+    display: flex;
+    /* 預設主軸(水平) */
+    justify-content: center;
+    /* 主軸(水平)均分 */
+    align-items: center;
+    margin-top: 2%;
+}
+
+#card-box .card-one .content .item .down p {
+    margin: 0 5px;
+    background-color: #F0EDED;
+    padding: 3% 3%;
+    border-radius: 50px;
+    white-space: nowrap;
+}
+
+#card-box .card-one .content .price {
+    border-bottom: 1px solid var(--deep);
+    padding-bottom: 2px;
+}
+
+/* 卡片2 */
+#card-box .card-two {
+    background-color: var(--light);
+    padding: 5%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2% 0;
+}
+
+#card-box .card-two .number {
+    display: flex;
+    /* 預設主軸(水平) */
+    justify-content: space-between;
+    /* 主軸(水平)均分 */
+    align-items: baseline;
+    width: 100%;
+}
+
+#card-box .card-two .number h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+#card-box .card-two .number p {
+    font-size: 1.25rem;
+}
+
+#card-box .card-two .picture {
+    background-image: url(./images/card-two.jpg);
+    background-size: cover;
+    background-position: 50% 25%;
+    width: 800px;
+    height: 400px;
+    margin: 2% 0;
+}
+
+#card-box .card-two .content {
+    display: flex;
+    /* 預設主軸(水平) */
+    justify-content: space-between;
+    /* 主軸(水平)均分 */
+    align-items: center;
+    width: 100%;
+}
+
+#card-box .card-two .content .item {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+#card-box .card-two .content .item .up {
+    display: flex;
+    /* 預設主軸(水平) */
+    justify-content: center;
+    /* 主軸(水平)均分 */
+    align-items: center;
+    margin: 2% 0;
+}
+
+#card-box .card-two .content .item .up p {
+    margin: 0 5px;
+    background-color: #F0EDED;
+    padding: 3% 3%;
+    border-radius: 50px;
+    white-space: nowrap;
+}
+
+#card-box .card-two .content .item .down {
+    display: flex;
+    /* 預設主軸(水平) */
+    justify-content: center;
+    /* 主軸(水平)均分 */
+    align-items: center;
+    margin-top: 2%;
+}
+
+#card-box .card-two .content .item .down p {
+    margin: 0 5px;
+    background-color: #F0EDED;
+    padding: 3% 3%;
+    border-radius: 50px;
+    white-space: nowrap;
+}
+
+#card-box .card-two .content .price {
+    border-bottom: 1px solid var(--deep);
+    padding-bottom: 2px;
+}
+
+/* 卡片3 */
+#card-box .card-three {
+    background-color: var(--light);
+    padding: 5%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2% 0;
+}
+
+#card-box .card-three .number {
+    display: flex;
+    /* 預設主軸(水平) */
+    justify-content: space-between;
+    /* 主軸(水平)均分 */
+    align-items: baseline;
+    width: 100%;
+}
+
+#card-box .card-three .number h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+#card-box .card-three .number p {
+    font-size: 1.25rem;
+}
+
+#card-box .card-three .picture {
+    background-image: url(./images/card-three.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 800px;
+    height: 400px;
+    margin: 2% 0;
+}
+
+#card-box .card-three .content {
+    display: flex;
+    /* 預設主軸(水平) */
+    justify-content: space-between;
+    /* 主軸(水平)均分 */
+    align-items: center;
+    width: 100%;
+}
+
+#card-box .card-three .content .item {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+#card-box .card-three .content .item .up {
+    display: flex;
+    /* 預設主軸(水平) */
+    justify-content: center;
+    /* 主軸(水平)均分 */
+    align-items: center;
+    margin: 2% 0;
+}
+
+#card-box .card-three .content .item .up p {
+    margin: 0 5px;
+    background-color: #F0EDED;
+    padding: 3% 3%;
+    border-radius: 50px;
+    white-space: nowrap;
+}
+
+#card-box .card-three .content .item .center {
+    display: flex;
+    /* 預設主軸(水平) */
+    justify-content: center;
+    /* 主軸(水平)均分 */
+    align-items: center;
+    margin: 2% 0;
+}
+
+#card-box .card-three .content .item .center p {
+    margin: 0 5px;
+    background-color: #F0EDED;
+    padding: 3% 3%;
+    border-radius: 50px;
+    white-space: nowrap;
+}
+
+#card-box .card-three .content .item .down {
+    display: flex;
+    /* 預設主軸(水平) */
+    justify-content: center;
+    /* 主軸(水平)均分 */
+    align-items: center;
+    margin-top: 2%;
+}
+
+#card-box .card-three .content .item .down p {
+    margin: 0 5px;
+    background-color: #F0EDED;
+    padding: 3% 3%;
+    border-radius: 50px;
+    white-space: nowrap;
+}
+
+#card-box .card-three .content .price {
+    border-bottom: 1px solid var(--deep);
+    padding-bottom: 2px;
+}
+
+/* 注意事項與客製化加購 */
+#notice {
+    display: flex;
+    /* 預設主軸(水平) */
+    justify-content: center;
+}
+
+#notice .bg {
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url(./images/button.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 70%;
+    margin: 5% 0;
+    border-radius: 0 60px 0 60px;
+}
+
+#notice .glass {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* 主軸(水平)均分 */
+    align-items: center;
+    padding: 5% 0;
+    padding-left: 5%;
+    color: var(--light);
+    letter-spacing: 2px;
+    backdrop-filter: blur(2px);
+}
+
+#notice .glass .caution {
+    width: 30%;
+    padding-right: 2%;
+}
+
+#notice .glass h1 {
+    font-weight: bold;
+    margin-bottom: 5%;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+#notice .glass h2 {
+    font-weight: bold;
+    margin: 1% 0;
+}
+
+#notice .glass li {
+    font-size: 0.8rem;
+}
+
+#notice .glass ul {
+    list-style-type: square;
+    line-height: 35px;
+}
+
+#notice .glass .custom {
+    margin-left: 3%;
+}
+
+#notice .glass .custom .adjust {
+    display: flex;
+    flex-direction: row;
+}
+
+.margin {
+    margin-right: 30px;
+}
+
+#notice .glass .custom .row {
+    display: flex;
+    flex-direction: row;
+}
+
+#notice .glass .custom .space {
+    margin-bottom: 35px;
+}
+
+iframe {
+    width: 100%;
+    height: 400px;
+}
+
+/* GoTop鈕 */
+.gotop {
+    position: fixed;
+    display: none;
+    display: block;
+    right: 2%;
+    bottom: 40%;
+    width: 70px;
+    max-width: 100%;
+    z-index: 99;
+    cursor: pointer;
+}
