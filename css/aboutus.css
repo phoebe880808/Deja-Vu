@@ -1,0 +1,325 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "HV Muse";
+    src: url(../webfonts/Harmonais\ Visual\ -\ HV\ Muse\ Regular.otf);
+    /*./同一層*/
+    /*@共用*/
+}
+
+/* eric/css/reset/ */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+/* 全域選擇器，基本取消 */
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    /* 歸0為1rem/16 */
+    box-sizing: border-box;
+    /* 不累加邊框與內距 */
+}
+
+body {
+    font-family:
+        /*西文*/
+        "HV Muse"
+        /*中文*/
+    ;
+    /*中文，空格要有引號*/
+    color: var(--deep);
+    /*定義整個網站預設字色*/
+    /* 讓body填滿整個視口 */
+    /* background: linear-gradient(to right, #563F2E 40%, transparent 60%), url('../images/banner.jpg'); */
+    /* 使用線性漸變和圖片背景 */
+    /* background-size: auto, cover; */
+    /* 設置背景大小 */
+    /* background-position: right, center; */
+    /* 設置背景位置 */
+    background: url(../images/stone-ok.png);
+    line-height: 1;
+}
+
+:root {
+    /*文字*/
+    --light: #fff;
+    --deep: #434343;
+
+    /*主色調*/
+    --main: #563F2E;
+
+    /*輔助色調*/
+    --green: #40686A;
+    /* 透明色調 */
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+a {
+    display: block;
+    color: var(--light);
+    text-decoration: none;
+    /* 取消預設的底線裝飾 */
+}
+
+/* 頁首區 */
+.nav-box {
+    position: fixed;
+    /* position預設寬高抓內容尺寸 */
+    width: 100%;
+    display: flex;
+    /* 預設主軸(水平) */
+    justify-content: space-between;
+    /* 主軸(水平)均分 */
+    align-items: center;
+    /* 副軸(垂直)置中 */
+    padding: 20px 40px;
+    z-index: 999;
+}
+
+.nav-box img {
+    height: 130px;
+}
+
+.hamburger {
+    /* width: 80px; */
+    position: absolute;
+    right: 2.5%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    /* padding: 10px; */
+    /* cursor: pointer; */
+}
+
+.line-1 {
+    display: block;
+    background: #fff;
+    height: 2px;
+    width: 25px;
+    position: relative;
+    border-radius: 40px;
+}
+
+.line-2 {
+    display: block;
+    background: #fff;
+    height: 2px;
+    width: 15px;
+    margin-top: 5px;
+    position: relative;
+    border-radius: 40px;
+}
+
+.hamburger i:after {
+    content: "";
+    width: 0%;
+    position: absolute;
+    height: 100%;
+    background: rgba(64, 104, 106, .9);
+    transition: 0.2s;
+    border-radius: 40px;
+}
+
+.hamburger i:nth-child(2):after {
+    transition-delay: 0.1s;
+}
+
+.hamburger:hover i:after {
+    width: 100%;
+}
+
+#banner {
+    padding: 0.5% 0.5%;
+}
+
+#banner .bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, .05), rgba(0, 0, 0, .2)), url(../images/aboutus-banner.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 95vh;
+    border-radius: 0 50px 0 50px;
+    color: var(--light);
+}
+
+#preface {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 10%;
+}
+
+#preface .title {
+    position: absolute;
+    /* Add this line */
+    top: 100%;
+    /* Adjust as needed */
+    left: 50%;
+    /* Adjust as needed */
+    transform: translate(-50%, -50%);
+    /* Center the figure */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+}
+
+#preface .title h1 {
+    font-size: 7.5rem;
+    margin: 1%;
+}
+
+#preface .title h2 {
+    font-size: 1.5rem;
+    margin: 1%;
+    letter-spacing: 0.5rem;
+}
+
+#preface .value {
+    letter-spacing: 2px;
+    line-height: 2;
+}
+
+#preface .value h1 {
+    font-size: 1.5rem;
+}
+
+#preface .value p {
+    font-size: 0.875rem;
+}
+
+#preface .three {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    letter-spacing: 2px;
+    line-height: 2;
+    width: 50%;
+}
+
+#preface .three .one{
+    margin: 0 2%;
+}
+
+#preface .three h1 {
+    font-size: 1.5rem;
+}
+
+#preface .three p {
+    font-size: 0.875rem;
+}
+
+#preface .three span {
+    font-size: 8rem;
+}

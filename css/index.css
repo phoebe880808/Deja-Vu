@@ -1,0 +1,473 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "HV Muse";
+    src: url(../webfonts/Harmonais\ Visual\ -\ HV\ Muse\ Regular.otf);
+    /*./同一層*/
+    /*@共用*/
+}
+
+/* eric/css/reset/ */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+/* 全域選擇器，基本取消 */
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    /* 歸0為1rem/16 */
+    box-sizing: border-box;
+    /* 不累加邊框與內距 */
+}
+
+body {
+    font-family:
+        /*西文*/
+        "HV Muse"
+        /*中文*/
+    ;
+    /*中文，空格要有引號*/
+    color: var(--light);
+    /*定義整個網站預設字色*/
+    background-color: var(--main);
+
+    height: 100vh;
+    /* 讓body填滿整個視口 */
+    /* background: linear-gradient(to right, #563F2E 40%, transparent 60%), url('../images/banner.jpg'); */
+    /* 使用線性漸變和圖片背景 */
+    /* background-size: auto, cover; */
+    /* 設置背景大小 */
+    /* background-position: right, center; */
+    /* 設置背景位置 */
+    display: flex;
+    flex-direction: row;
+}
+
+/* 設置背景影片 */
+#video-background {
+    position: fixed;
+    /* right: 0;
+    bottom: 0; */
+    min-width: 100%;
+    /* 最小寬度設為100% */
+    min-height: 100%;
+    /* 最小高度設為100% */
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    /* 隱藏溢出內容 */
+    object-fit: cover;
+    /* 保持等比例裁切鋪滿容器 */
+}
+
+:root {
+    /*文字*/
+    --light: #fff;
+    --deep: #434343;
+
+    /*主色調*/
+    --main: #563F2E;
+
+    /*輔助色調*/
+    --green: #40686A;
+    /* 透明色調 */
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+a {
+    display: block;
+    color: var(--light);
+    text-decoration: none;
+    /* 取消預設的底線裝飾 */
+
+}
+
+/* 頁首區 */
+.nav-box {
+    position: fixed;
+    /* position預設寬高抓內容尺寸 */
+    width: 100%;
+    display: flex;
+    /* 預設主軸(水平) */
+    justify-content: space-between;
+    /* 主軸(水平)均分 */
+    align-items: center;
+    /* 副軸(垂直)置中 */
+    padding: 20px 50px;
+    z-index: 999;
+}
+
+.logo {
+    height: 60px;
+}
+
+.navbar-1 {
+    display: flex;
+    flex-direction: row;
+    /* 主軸(垂直)排列 */
+    align-items: flex-start;
+    /* 副軸(水平)齊尾 */
+}
+
+.navbar-1 li {
+    margin: 5px;
+}
+
+.navbar-1 li a {
+    margin: 5px;
+    font-size: 0.9rem;
+}
+
+.navbar-2 {
+    display: flex;
+    flex-direction: row;
+    /* 主軸(垂直)排列 */
+    align-items: flex-end;
+    /* 副軸(水平)齊尾 */
+}
+
+.navbar-2 {
+    padding-right: 30px;
+}
+
+.navbar-2 li {
+    margin: 5px;
+}
+
+.navbar-2 li a {
+    margin: 5px;
+    font-size: 0.9rem;
+}
+
+.navbar-2 .navbar-menu a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.hover a {
+    position: relative;
+    /* 為了使用偽元素定位 */
+    transition: color 0.3s ease-out;
+    font-weight: bold;
+}
+
+.hover a::after {
+    content: "";
+    /* 偽元素內容 */
+    position: absolute;
+    left: 50%;
+    /* 初始位置在中間 */
+    bottom: -2px;
+    /* 根據需要調整位置 */
+    width: 0;
+    /* 初始寬度為0 */
+    height: 2px;
+    /* 設置底線高度 */
+    background-color: rgba(64, 104, 106, .9);
+    /* 設置底線顏色 */
+    transition: all 0.3s ease-out;
+    /* 添加過渡效果 */
+}
+
+.hover a:hover {
+    color: rgba(64, 104, 106, .9);
+    /* 设置文字颜色变淡 */
+}
+
+.hover a:hover::after {
+    left: 0;
+    /* 擴展到左邊 */
+    width: 100%;
+    /* 擴展到底 */
+}
+
+.hamburger {
+    /* width: 80px; */
+    position: absolute;
+    right: 2.5%;
+    top: 48%;
+    transform: translate(-50%, -50%);
+    /* padding: 10px; */
+    /* cursor: pointer; */
+}
+
+.line-1 {
+    display: block;
+    background: #fff;
+    height: 2px;
+    width: 25px;
+    position: relative;
+    border-radius: 40px;
+}
+
+.line-2 {
+    display: block;
+    background: #fff;
+    height: 2px;
+    width: 15px;
+    margin-top: 5px;
+    position: relative;
+    border-radius: 40px;
+}
+
+.hamburger i:after {
+    content: "";
+    width: 0%;
+    position: absolute;
+    height: 100%;
+    background: rgba(64, 104, 106, .9);
+    transition: 0.2s;
+    border-radius: 40px;
+}
+
+.hamburger i:nth-child(2):after {
+    transition-delay: 0.1s;
+}
+
+.hamburger:hover i:after {
+    width: 100%;
+}
+
+.nav-box ul {
+    display: flex;
+}
+
+main {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+#declaration {
+    margin-bottom: 5%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#declaration h1 {
+    font-weight: bold;
+    font-size: 7.5rem;
+    /* text-shadow: 4px 4px 10px #434343; */
+    margin-bottom: 1%;
+}
+
+#declaration img{
+    width: 70%;
+}
+
+#news {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+    padding: 10px 10px;
+    border-radius: 40px 0 40px 0;
+    background-color: rgba(255, 255, 255, .6);
+    margin-bottom: 5%;
+    /* width: 85%; */
+    border: 1px solid white;
+    backdrop-filter: blur(5px);
+}
+
+#news #container {
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    width: 1500px;
+}
+
+#news #container .box {
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* flex-direction: row; */
+    /* flex: 3; */
+    margin: 0 15px;
+}
+
+#news #container ul .box .pic-1 {
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* flex-direction: row; */
+    /* flex: 1; */
+    background-position: center;
+    background-size: cover;
+    /*讓整張圖完整進去，不會被裁切*/
+    background-image: url(../images/rose.jpg);
+    border-radius: 10px;
+    margin-right: 20px;
+    border-radius: 20px 0 20px 0;
+    width: 100px;
+    height: 100px;
+}
+
+#news #container ul .box .pic-2 {
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* flex-direction: row; */
+    /* flex: 1; */
+    background-position: center;
+    background-size: cover;
+    /*讓整張圖完整進去，不會被裁切*/
+    background-image: url(../images/table.jpg);
+    border-radius: 10px;
+    margin-right: 20px;
+    border-radius: 20px 0 20px 0;
+    width: 100px;
+    height: 100px;
+}
+
+#news #container ul .box .pic-3 {
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* flex-direction: row; */
+    /* flex: 1; */
+    background-position: left;
+    background-size: cover;
+    /*讓整張圖完整進去，不會被裁切*/
+    background-image: url(../images/cheers.jpg);
+    border-radius: 10px;
+    margin-right: 20px;
+    border-radius: 20px 0 20px 0;
+    width: 100px;
+    height: 100px;
+}
+
+#news #container ul .box .content {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: flex-end; */
+    /* flex: 2; */
+    letter-spacing: 2px;
+    line-height: 30px;
+    color: var(--main);
+    width: 350px;
+    margin-top: 1%;
+}
+
+#news #container ul .box .content p {
+    text-align: right;
+    font-size: 0.8rem;
+}
+
+/* border: 1px solid red; */
